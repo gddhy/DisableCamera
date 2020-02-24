@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hy.disablecamera" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/camera_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoDisplay" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+		
+		<activity-alias
+			android:icon="@drawable/google_camera_launcher"
+            android:name=".Main2"
+            android:enabled="false"
+            android:label="@string/app_name2"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+		
+		<receiver android:name=".MyAdmin">
+			<meta-data android:name="android.app.device_admin"
+				android:resource="@xml/my_admin" />
+			<intent-filter>
+				<action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+			</intent-filter>
+		</receiver>
+    </application>
+
+</manifest>
